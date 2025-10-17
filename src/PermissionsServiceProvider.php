@@ -2,10 +2,10 @@
 
 namespace Wijzijnweb\LaravelInertiaPermissions;
 
-use Illuminate\Support\ServiceProvider;
 use Inertia\Inertia;
-use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use Illuminate\Support\ServiceProvider;
+use Spatie\Permission\Models\Permission;
 use Wijzijnweb\LaravelInertiaPermissions\App\Models\PermissionGroup;
 
 class PermissionsServiceProvider extends ServiceProvider
@@ -17,23 +17,20 @@ class PermissionsServiceProvider extends ServiceProvider
         Inertia::share([
             'user_permissions' => function () {
                 $user = auth()->user();
-
-                if ($user) {
-                    return [
-                        'permissions' => $user->getAllPermissions()->pluck('name'),
-                        'roles' => $user->roles->pluck('code'),
-                    ];
-                }
-
-                return [];
+                return $user ? [
+                    'permissions' => $user->getAllPermissions()->pluck('name'),
+                    'roles' => $user->roles->pluck('name'),
+                    'uses_wildcards' => config('permission.enable_wildcard_permission', false),
+                    'debug' => config('app.debug', false),
+                ] : [];
             },
-            'permissions' => function () {
-                return [
-                    'groups' => PermissionGroup::with('permissions')->get(),
-                    'permissions' => Permission::get(),
-                    'roles' => Role::get(),
-                ];
-            },
+            // 'permissions' => function () {
+            //     return [
+            //         'groups' => PermissionGroup::with('permissions')->get(),
+            //         'permissions' => Permission::get(),
+            //         'roles' => Role::get(),
+            //     ];
+            // },
         ]);
     }
 }

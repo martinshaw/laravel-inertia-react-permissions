@@ -1,5 +1,6 @@
 {
     "name": "martinshaw/laravel-inertia-react-permissions",
+    "version": "1.0.1",
     "description": "Easy to use package to implement Spatie's Permissions package into Inertia Laravel projects.",
     "keywords": [
         "permissions",
