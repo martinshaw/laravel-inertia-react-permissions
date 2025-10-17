@@ -7,7 +7,7 @@ Easy to use package to implement Spatie's Permissions package into Inertia Larav
 You can install the package via composer:
 
 ```bash
-composer require wijzijnweb/laravel-inertia-permissions
+composer require martinshaw/laravel-inertia-react-permissions
 ```
 
 You can publish and run the migrations with
