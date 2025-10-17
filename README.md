@@ -21,7 +21,7 @@ Add the following to your vite.config.js file
 ```js
 resolve: {
     alias: {
-        '@laravel-inertia-permissions': '/vendor/wijzijnweb/laravel-inertia-permissions/resources/js'
+        '@laravel-inertia-permissions': '/vendor/martinshaw/laravel-inertia-react-permissions/resources/js'
     }
 }
 ```
@@ -31,7 +31,7 @@ Optionally, you can add the following to your jsconfig.json file:
 {
     "compilerOptions": {
         "paths": {
-            "@laravel-inertia-permissions/*": ["./vendor/wijzijnweb/laravel-inertia-permissions/resources/js/*"]
+            "@laravel-inertia-permissions/*": ["./vendor/martinshaw/laravel-inertia-react-permissions/resources/js/*"]
         }
     }
 }
